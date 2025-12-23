@@ -2,7 +2,7 @@
     box-sizing: border-box;
     -webkit-user-select: none;
     user-select: none;
-    touch-action: manipulation; /* 優化觸控 */
+    touch-action: manipulation;
 }
 
 body, html {
@@ -10,7 +10,6 @@ body, html {
     height: 100dvh; width: 100vw;
     background-color: #f5f5f5;
     overflow: hidden;
-    position: fixed;
 }
 
 #app-container {
@@ -22,29 +21,30 @@ body, html {
     gap: 8px;
 }
 
-/* 頂部文字欄：佔 12% */
 #text-control-bar {
     display: flex;
-    height: 12%; 
+    height: 15%; 
     gap: 10px;
 }
 
 #text-display {
     flex: 1;
     background: white;
-    border: 4px solid #455A64;
+    border: 5px solid #455A64;
     border-radius: 12px;
-    font-size: 36px;
+    font-size: 48px;
     font-weight: bold;
-    padding: 0 15px;
+    padding: 0 20px;
     display: flex;
     align-items: center;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 #control-buttons-right {
     display: flex;
     flex-direction: column;
-    width: 90px;
+    width: 110px;
     gap: 6px;
 }
 
@@ -53,35 +53,33 @@ body, html {
     border: none;
     border-radius: 10px;
     color: white;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
 }
 
 #clear-text-btn { background: #f44336; }
 #backspace-btn { background: #FF9800; }
 
-/* 按鈕區域：佔 70% */
 #button-container {
     flex: 1;
     display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    gap: 12px;
 }
 
+.grid-3x4 { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(4, 1fr); }
+.grid-4x4 { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); }
+
 #button-container button {
-    font-size: 32px;
+    font-size: 42px;
     font-weight: 900;
     border: none;
     border-radius: 15px;
     color: white;
-    box-shadow: 0 5px #999;
-    cursor: pointer;
+    box-shadow: 0 6px #777;
 }
 
-/* 底部導航：佔 10% 以內，確保不超出 */
 #page-control {
-    height: 65px; 
+    height: 75px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -92,8 +90,8 @@ body, html {
 }
 
 .nav-btn, .edit-btn {
-    height: 50px;
-    padding: 0 15px;
+    height: 60px;
+    padding: 0 10px;
     font-size: 22px;
     font-weight: bold;
     border: none;
@@ -102,18 +100,7 @@ body, html {
 }
 
 .nav-btn { background: #1976D2; flex: 1; }
-
-/* 修改鍵設定 */
-.edit-btn { 
-    background: #546E7A; 
-    min-width: 110px;
-    box-shadow: 0 3px #333;
-}
-.edit-btn.active { 
-    background: #d32f2f !important; 
-    border: 3px solid #ffeb3b;
-    box-shadow: 0 0 15px rgba(211, 47, 47, 0.5);
-}
-
-#page-info { font-size: 22px; font-weight: bold; min-width: 80px; text-align: center; }
+.edit-btn { background: #546E7A; min-width: 100px; }
+.edit-btn.active { background: #d32f2f !important; }
+#page-info { font-size: 20px; font-weight: bold; min-width: 60px; text-align: center; }
 .hidden { display: none !important; }

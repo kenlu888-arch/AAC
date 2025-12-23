@@ -3,21 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    
-    <link rel="manifest" href="manifest.json">
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./sw.js');
-        }
-    </script>
-
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="樂齡溝通板">
-    <link rel="apple-touch-icon" href="icon.jpg"> 
-
-    <title>樂齡溝通板 - 定製版</title>
-    
+    <title>樂齡溝通板</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -36,6 +22,7 @@
             <button id="prev-page" class="nav-btn">⬅️前頁</button>
             <div id="page-info">第 1 / 1 頁</div>
             <button id="next-page" class="nav-btn">後頁➡️</button>
+            <button id="add-page-btn" class="nav-btn" style="background: #4CAF50;">➕增加</button>
             <button id="edit-toggle-btn" class="edit-btn">✏️修改</button>
         </div>
     </div>

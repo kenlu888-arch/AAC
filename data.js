@@ -1,731 +1,371 @@
 const APP_DATA = {
-    // Level 1 主題
     "Level1_Topics": [
-        {"text": "人物/關係", "target": "Page_K1"},
-        {"text": "連接", "target": "Page_I1"},
-        {"text": "動作", "target": "Page_O1"},
-        {"text": "需要", "target": "Page_B1"},
-        {"text": "形容", "target": "Page_M1"},
-        {"text": "活動/娛樂", "target": "Page_D1"},
-        {"text": "健康/身體", "target": "Page_E1"},
-        {"text": "地點/方向", "target": "Page_F1"},
-        {"text": "感覺／感受", "target": "Page_H1"},
-        {"text": "數字/時間", "target": "Page_J1"},
-        {"text": "問候/情感", "target": "Page_A1"},
-        {"text": "物品／生活", "target": "Page_L1"},
-        {"text": "自訂句子", "target": "Page_P1"},
-        {"text": "問候／疑問", "target": "Page_N1"},
-        {"text": "食物/飲料", "target": "Page_C1"},
-        {"text": "其他", "target": "Page_G1"},
+        {"text": "對象", "target": "Page_A1"}, {"text": "連接", "target": "Page_B1"},
+        {"text": "動作", "target": "Page_C1"}, {"text": "需要", "target": "Page_D1"},
+        {"text": "活動", "target": "Page_E1"}, {"text": "健康", "target": "Page_F1"},
+        {"text": "地點", "target": "Page_G1"}, {"text": "時間", "target": "Page_H1"},
+        {"text": "問候", "target": "Page_I1"}, {"text": "生活", "target": "Page_J1"},
+        {"text": "句子", "target": "Page_K1"}, {"text": "其他", "target": "Page_L1"},
     ],
 
     "Page_A1": {
         "pages": [
-            // Page 1: 基礎問候與情緒
             [
                 {"text": "您", "action": "ADD_TEXT"}, {"text": "不", "action": "ADD_TEXT"}, 
                 {"text": "很", "action": "ADD_TEXT"}, {"text": "好", "action": "ADD_TEXT"}, 
                 {"text": "要", "action": "ADD_TEXT"}, {"text": "是", "action": "ADD_TEXT"}, 
                 {"text": "請", "action": "ADD_TEXT"}, {"text": "愛", "action": "ADD_TEXT"}, 
-                {"text": "要", "action": "ADD_TEXT"}, {"text": "了", "action": "ADD_TEXT"},
-                {"text": "累", "action": "ADD_TEXT"}, {"text": "餓", "action": "ADD_TEXT"},
-                {"text": "渴", "action": "ADD_TEXT"}, {"text": "想", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]}, 
-            ],
-            // Page 2: 身體與需求狀態 (已修正缺少逗號的問題)
-            [
-                {"text": "說", "action": "ADD_TEXT"}, 
-                {"text": "開心", "action": "ADD_TEXT"},
-                {"text": "難過", "action": "ADD_TEXT"},
-                {"text": "生氣", "action": "ADD_TEXT"},
-                {"text": "停止", "action": "ADD_TEXT"},
-                {"text": "繼續", "action": "ADD_TEXT"},
-                {"text": "害怕", "action": "ADD_TEXT"},
-                {"text": "煩躁", "action": "ADD_TEXT"},
-                {"text": "寂寞", "action": "ADD_TEXT"},
-                {"text": "高興", "action": "ADD_TEXT"},
-                {"text": "舒服", "action": "ADD_TEXT"},
-                {"text": "回家", "action": "ADD_TEXT"},
-                {"text": "幫助", "action": "ADD_TEXT"},
-                {"text": "睡覺", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ], // <--- 【關鍵修正 1: 這裡缺少逗號，已補上】
-            // Page 3: 進階問候與心情
-            [
-                {"text": "早安", "action": "ADD_TEXT"},
-                {"text": "午安", "action": "ADD_TEXT"},
-                {"text": "晚安", "action": "ADD_TEXT"},
-                {"text": "再見", "action": "ADD_TEXT"},
-                {"text": "謝謝", "action": "ADD_TEXT"},
-                {"text": "期待", "action": "ADD_TEXT"},
-                {"text": "擔心", "action": "ADD_TEXT"},
-                {"text": "加油", "action": "ADD_TEXT"},
-                {"text": "祝福", "action": "ADD_TEXT"},
-                {"text": "幸福", "action": "ADD_TEXT"},
-                {"text": "感激", "action": "ADD_TEXT"},
-                {"text": "希望", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
+                {"text": "了", "action": "ADD_TEXT"}, {"text": "累", "action": "ADD_TEXT"},
+                {"text": "餓", "action": "ADD_TEXT"}, {"text": "渴", "action": "ADD_TEXT"},
+                {"text": "想", "action": "ADD_TEXT"}, {"text": "人物", "action": "SUB_LINK"}, 
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-    
+
+    "Page_A1_Sub": {
+        "pages": [
+            [
+                {"text": "細節1", "action": "ADD_TEXT"}, {"text": "細節2", "action": "ADD_TEXT"},
+                {"text": "細節3", "action": "ADD_TEXT"}, {"text": "細節4", "action": "ADD_TEXT"},
+                {"text": "細節5", "action": "ADD_TEXT"}, {"text": "細節6", "action": "ADD_TEXT"},
+                {"text": "細節7", "action": "ADD_TEXT"}, {"text": "細節8", "action": "ADD_TEXT"},
+                {"text": "細節9", "action": "ADD_TEXT"}, {"text": "細節10", "action": "ADD_TEXT"},
+                {"text": "細節11", "action": "ADD_TEXT"}, {"text": "細節12", "action": "ADD_TEXT"},
+                {"text": "細節13", "action": "ADD_TEXT"}, {"text": "再下一層", "action": "SUB_LINK"},
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
+        ]
+    },
+
     "Page_B1": {
         "pages": [
-            // Page 1: 日常需求
             [
-                {"text": "想", "action": "ADD_TEXT"},
-                {"text": "要", "action": "ADD_TEXT"},
-                {"text": "請", "action": "ADD_TEXT"},
-                {"text": "很", "action": "ADD_TEXT"},
-                {"text": "不", "action": "ADD_TEXT"},
-                {"text": "熱", "action": "ADD_TEXT"},
-                {"text": "冷", "action": "ADD_TEXT"},
-                {"text": "累", "action": "ADD_TEXT"},
-                {"text": "睏", "action": "ADD_TEXT"},
-                {"text": "舒服", "action": "ADD_TEXT"},
-                {"text": "需要", "action": "ADD_TEXT"},
-                {"text": "幫助", "action": "ADD_TEXT"},
-                {"text": "出去", "action": "ADD_TEXT"},
-                {"text": "回家", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-            // Page 2: 食物需求行為
-            [
-                {"text": "睡覺", "action": "ADD_TEXT"},
-                {"text": "喝水", "action": "ADD_TEXT"},
-                {"text": "餓了", "action": "ADD_TEXT"},
-                {"text": "吃飯", "action": "ADD_TEXT"},
-                {"text": "甜點", "action": "ADD_TEXT"},
-                {"text": "水果", "action": "ADD_TEXT"},
-                {"text": "毛巾", "action": "ADD_TEXT"},
-                {"text": "乳液", "action": "ADD_TEXT"},
-                {"text": "紙巾", "action": "ADD_TEXT"},
-                {"text": "夠了", "action": "ADD_TEXT"},
-                {"text": "還要", "action": "ADD_TEXT"},
-                {"text": "休息", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
+                {"text": "想", "action": "ADD_TEXT"}, {"text": "要", "action": "ADD_TEXT"},
+                {"text": "請", "action": "ADD_TEXT"}, {"text": "很", "action": "ADD_TEXT"},
+                {"text": "不", "action": "ADD_TEXT"}, {"text": "熱", "action": "ADD_TEXT"},
+                {"text": "冷", "action": "ADD_TEXT"}, {"text": "累", "action": "ADD_TEXT"},
+                {"text": "睏", "action": "ADD_TEXT"}, {"text": "舒服", "action": "ADD_TEXT"},
+                {"text": "需要", "action": "ADD_TEXT"}, {"text": "幫助", "action": "ADD_TEXT"},
+                {"text": "出去", "action": "ADD_TEXT"}, {"text": "進入下層", "action": "SUB_LINK"},
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-    
-    "Page_C1": {
+
+    "Page_B1_Sub": {
         "pages": [
-            // Page 1: 食物與飲料 (已修正缺少逗號的問題)
             [
-                {"text": "飯", "action": "ADD_TEXT"},
-                {"text": "水果", "action": "ADD_TEXT"},
-                {"text": "水", "action": "ADD_TEXT"},
-                {"text": "飲料", "action": "ADD_TEXT"},
-                {"text": "豬肉", "action": "ADD_TEXT"},
-                {"text": "牛肉", "action": "ADD_TEXT"},
-                {"text": "湯", "action": "ADD_TEXT"},
-                {"text": "餅乾", "action": "ADD_TEXT"},
-                {"text": "藥", "action": "ADD_TEXT"},
-                {"text": "甜點", "action": "ADD_TEXT"},
-                {"text": "點心", "action": "ADD_TEXT"},
-                {"text": "麵包", "action": "ADD_TEXT"},
-                {"text": "牛奶", "action": "ADD_TEXT"},
-                {"text": "果汁", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ], // <--- 【關鍵修正 2: 這裡缺少逗號，已補上】
-            // Page 2: 食物與飲料（續）
-            [
-                {"text": "麵", "action": "ADD_TEXT"},
-                {"text": "魚", "action": "ADD_TEXT"},
-                {"text": "蛋", "action": "ADD_TEXT"},
-                {"text": "蔬菜", "action": "ADD_TEXT"},
-                {"text": "咖啡", "action": "ADD_TEXT"},
-                {"text": "茶", "action": "ADD_TEXT"},
-                {"text": "優葛", "action": "ADD_TEXT"},
-                {"text": "蒸蛋", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-        ]
+                {"text": "細節1", "action": "ADD_TEXT"}, {"text": "細節2", "action": "ADD_TEXT"},
+                {"text": "細節3", "action": "ADD_TEXT"}, {"text": "細節4", "action": "ADD_TEXT"},
+                {"text": "細節5", "action": "ADD_TEXT"}, {"text": "細節6", "action": "ADD_TEXT"},
+                {"text": "細節7", "action": "ADD_TEXT"}, {"text": "細節8", "action": "ADD_TEXT"},
+                {"text": "細節9", "action": "ADD_TEXT"}, {"text": "細節10", "action": "ADD_TEXT"},
+                {"text": "細節11", "action": "ADD_TEXT"}, {"text": "細節12", "action": "ADD_TEXT"},
+                {"text": "細節13", "action": "ADD_TEXT"}, {"text": "再下一層", "action": "SUB_LINK"},
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"},
+            ]
+       ]
+
     },
-    
-    "Page_D1": {
+
+      "Page_C1": {
         "pages": [
-            // Page 1: 活動與需求
             [
-                {"text": "散步", "action": "ADD_TEXT"},
-                {"text": "公園", "action": "ADD_TEXT"},
-                {"text": "回家", "action": "ADD_TEXT"},
-                {"text": "聊天", "action": "ADD_TEXT"},
-                {"text": "看電視", "action": "ADD_TEXT"},
-                {"text": "聽音樂", "action": "ADD_TEXT"},
-                {"text": "吃飯", "action": "ADD_TEXT"},
-                {"text": "喝水", "action": "ADD_TEXT"},
-                {"text": "潤喉", "action": "ADD_TEXT"},
-                {"text": "復健", "action": "ADD_TEXT"},
-                {"text": "手機", "action": "ADD_TEXT"},
-                {"text": "按摩", "action": "ADD_TEXT"},
-                {"text": "下床", "action": "ADD_TEXT"},
-                {"text": "換藥", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-            // Page 2: 物品
-            [
-                {"text": "衣服", "action": "ADD_TEXT"},
-                {"text": "圍巾", "action": "ADD_TEXT"},
-                {"text": "帽子", "action": "ADD_TEXT"},
-                {"text": "口罩", "action": "ADD_TEXT"},
-                {"text": "抱枕", "action": "ADD_TEXT"},
-                {"text": "外套", "action": "ADD_TEXT"},
-                {"text": "毯子", "action": "ADD_TEXT"},
-                {"text": "遙控器", "action": "ADD_TEXT"},
-                {"text": "紙張", "action": "ADD_TEXT"},
-                {"text": "畫畫", "action": "ADD_TEXT"},
-                {"text": "寫字", "action": "ADD_TEXT"},
-                {"text": "窗簾", "action": "ADD_TEXT"},
-                {"text": "紙巾", "action": "ADD_TEXT"},
-                {"text": "輪椅", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
+                {"text": "您", "action": "ADD_TEXT"}, {"text": "不", "action": "ADD_TEXT"}, 
+                {"text": "很", "action": "ADD_TEXT"}, {"text": "好", "action": "ADD_TEXT"}, 
+                {"text": "要", "action": "ADD_TEXT"}, {"text": "是", "action": "ADD_TEXT"}, 
+                {"text": "請", "action": "ADD_TEXT"}, {"text": "愛", "action": "ADD_TEXT"}, 
+                {"text": "了", "action": "ADD_TEXT"}, {"text": "累", "action": "ADD_TEXT"},
+                {"text": "餓", "action": "ADD_TEXT"}, {"text": "渴", "action": "ADD_TEXT"},
+                {"text": "想", "action": "ADD_TEXT"}, {"text": "人物", "action": "SUB_LINK"}, 
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-    
-    "Page_E1": {
+
+    "Page_C1_Sub": {
         "pages": [
-            // Page 1: 健康與身體部位
             [
-                {"text": "不", "action": "ADD_TEXT"},
-                {"text": "很", "action": "ADD_TEXT"},
-                {"text": "酸", "action": "ADD_TEXT"},
-                {"text": "舒服", "action": "ADD_TEXT"},
-                {"text": "疼痛", "action": "ADD_TEXT"},
-                {"text": "暈眩", "action": "ADD_TEXT"},
-                {"text": "發燒", "action": "ADD_TEXT"},
-                {"text": "漲漲", "action": "ADD_TEXT"},
-                {"text": "頭", "action": "ADD_TEXT"},
-                {"text": "眼睛", "action": "ADD_TEXT"},
-                {"text": "鼻子", "action": "ADD_TEXT"},
-                {"text": "耳朵", "action": "ADD_TEXT"},
-                {"text": "頭髮", "action": "ADD_TEXT"},
-                {"text": "嘴吧", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-            // Page 2: 醫療與照護需求
-            [
-                {"text": "手", "action": "ADD_TEXT"},
-                {"text": "腳", "action": "ADD_TEXT"},
-                {"text": "肚子", "action": "ADD_TEXT"},
-                {"text": "胸腔", "action": "ADD_TEXT"},
-                {"text": "背後", "action": "ADD_TEXT"},
-                {"text": "舌頭", "action": "ADD_TEXT"},
-                {"text": "牙齒", "action": "ADD_TEXT"},
-                {"text": "換姿勢", "action": "ADD_TEXT"},
-                {"text": "看醫生", "action": "ADD_TEXT"},
-                {"text": "擦乳液", "action": "ADD_TEXT"},
-                {"text": "按摩", "action": "ADD_TEXT"},
-                {"text": "換尿布", "action": "ADD_TEXT"},
-                {"text": "檢查", "action": "ADD_TEXT"},
-                {"text": "吃藥", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
+                {"text": "細節1", "action": "ADD_TEXT"}, {"text": "細節2", "action": "ADD_TEXT"},
+                {"text": "細節3", "action": "ADD_TEXT"}, {"text": "細節4", "action": "ADD_TEXT"},
+                {"text": "細節5", "action": "ADD_TEXT"}, {"text": "細節6", "action": "ADD_TEXT"},
+                {"text": "細節7", "action": "ADD_TEXT"}, {"text": "細節8", "action": "ADD_TEXT"},
+                {"text": "細節9", "action": "ADD_TEXT"}, {"text": "細節10", "action": "ADD_TEXT"},
+                {"text": "細節11", "action": "ADD_TEXT"}, {"text": "細節12", "action": "ADD_TEXT"},
+                {"text": "細節13", "action": "ADD_TEXT"}, {"text": "再下一層", "action": "SUB_LINK"},
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-    
-    "Page_F1": {
+
+     "Page_D1": {
         "pages": [
-            // Page 1: 地點與方向
             [
-                {"text": "醫院", "action": "ADD_TEXT"},
-                {"text": "銀行", "action": "ADD_TEXT"},
-                {"text": "餐廳", "action": "ADD_TEXT"},
-                {"text": "郵局", "action": "ADD_TEXT"},
-                {"text": "商場", "action": "ADD_TEXT"},
-                {"text": "超商", "action": "ADD_TEXT"},
-                {"text": "樓上", "action": "ADD_TEXT"},
-                {"text": "樓下", "action": "ADD_TEXT"},
-                {"text": "隔壁", "action": "ADD_TEXT"},
-                {"text": "鄰居", "action": "ADD_TEXT"},
-                {"text": "廁所", "action": "ADD_TEXT"},
-                {"text": "外面", "action": "ADD_TEXT"},
-                {"text": "左邊", "action": "ADD_TEXT"},
-                {"text": "右邊", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-            // Page 2: 地點與方向（續）
-            [
-                {"text": "前面", "action": "ADD_TEXT"},
-                {"text": "後面", "action": "ADD_TEXT"},
-                {"text": "夜晚", "action": "ADD_TEXT"},
-                {"text": "天亮", "action": "ADD_TEXT"},
-                {"text": "市場", "action": "ADD_TEXT"},
-                {"text": "這裡", "action": "ADD_TEXT"},
-                {"text": "裡面", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
+                {"text": "您", "action": "ADD_TEXT"}, {"text": "不", "action": "ADD_TEXT"}, 
+                {"text": "很", "action": "ADD_TEXT"}, {"text": "好", "action": "ADD_TEXT"}, 
+                {"text": "要", "action": "ADD_TEXT"}, {"text": "是", "action": "ADD_TEXT"}, 
+                {"text": "請", "action": "ADD_TEXT"}, {"text": "愛", "action": "ADD_TEXT"}, 
+                {"text": "了", "action": "ADD_TEXT"}, {"text": "累", "action": "ADD_TEXT"},
+                {"text": "餓", "action": "ADD_TEXT"}, {"text": "渴", "action": "ADD_TEXT"},
+                {"text": "想", "action": "ADD_TEXT"}, {"text": "人物", "action": "SUB_LINK"}, 
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-    
-    "Page_G1": {
+
+    "Page_D1_Sub": {
         "pages": [
-            // Page 1: 身體部位 (這頁主題與「健康/身體 E1」重複較多，已調整為身體部位細節)
             [
-                {"text": "拜拜", "action": "ADD_TEXT"},
-                {"text": "九華山", "action": "ADD_TEXT"},
-                {"text": "天公廟", "action": "ADD_TEXT"},
-                {"text": "平安符", "action": "ADD_TEXT"},
-                {"text": "祭改", "action": "ADD_TEXT"},
-                {"text": "佛祖", "action": "ADD_TEXT"},
-                {"text": "神明", "action": "ADD_TEXT"},
-                {"text": "不乾淨", "action": "ADD_TEXT"},
-                {"text": "鬼神", "action": "ADD_TEXT"},
-                {"text": "幻覺", "action": "ADD_TEXT"},
-                {"text": "念經", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-           
+                {"text": "細節1", "action": "ADD_TEXT"}, {"text": "細節2", "action": "ADD_TEXT"},
+                {"text": "細節3", "action": "ADD_TEXT"}, {"text": "細節4", "action": "ADD_TEXT"},
+                {"text": "細節5", "action": "ADD_TEXT"}, {"text": "細節6", "action": "ADD_TEXT"},
+                {"text": "細節7", "action": "ADD_TEXT"}, {"text": "細節8", "action": "ADD_TEXT"},
+                {"text": "細節9", "action": "ADD_TEXT"}, {"text": "細節10", "action": "ADD_TEXT"},
+                {"text": "細節11", "action": "ADD_TEXT"}, {"text": "細節12", "action": "ADD_TEXT"},
+                {"text": "細節13", "action": "ADD_TEXT"}, {"text": "再下一層", "action": "SUB_LINK"},
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-    
-    "Page_H1": {
+
+     "Page_E1": {
         "pages": [
-            // Page 1: 感覺／感受 (這頁主題與「問候/情感 A1」重複較多，已調整為更細微的感受)
             [
-                {"text": "舒服", "action": "ADD_TEXT"},
-                {"text": "放鬆", "action": "ADD_TEXT"},
-                {"text": "緊張", "action": "ADD_TEXT"},
-                {"text": "害怕", "action": "ADD_TEXT"},
-                {"text": "驚訝", "action": "ADD_TEXT"},
-                {"text": "平靜", "action": "ADD_TEXT"},
-                {"text": "無聊", "action": "ADD_TEXT"},
-                {"text": "寂寞", "action": "ADD_TEXT"},
-                {"text": "滿足", "action": "ADD_TEXT"},
-                {"text": "失望", "action": "ADD_TEXT"},
-                {"text": "擔心", "action": "ADD_TEXT"},
-                {"text": "期待", "action": "ADD_TEXT"},
-                {"text": "厭煩", "action": "ADD_TEXT"},
-                {"text": "感動", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-            // Page 2: 意願與態度
-            [
-                {"text": "同意", "action": "ADD_TEXT"},
-                {"text": "反對", "action": "ADD_TEXT"},
-                {"text": "試試", "action": "ADD_TEXT"},
-                {"text": "算了", "action": "ADD_TEXT"},
-                {"text": "沒意見", "action": "ADD_TEXT"},
-                {"text": "隨便", "action": "ADD_TEXT"},
-                {"text": "都可以", "action": "ADD_TEXT"},
-                {"text": "不", "action": "ADD_TEXT"},
-                {"text": "願意", "action": "ADD_TEXT"},
-                {"text": "要", "action": "ADD_TEXT"},
-                {"text": "喜歡", "action": "ADD_TEXT"},
-                {"text": "想聽", "action": "ADD_TEXT"},
-                {"text": "想做", "action": "ADD_TEXT"},
-                {"text": "討厭", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
+                {"text": "您", "action": "ADD_TEXT"}, {"text": "不", "action": "ADD_TEXT"}, 
+                {"text": "很", "action": "ADD_TEXT"}, {"text": "好", "action": "ADD_TEXT"}, 
+                {"text": "要", "action": "ADD_TEXT"}, {"text": "是", "action": "ADD_TEXT"}, 
+                {"text": "請", "action": "ADD_TEXT"}, {"text": "愛", "action": "ADD_TEXT"}, 
+                {"text": "了", "action": "ADD_TEXT"}, {"text": "累", "action": "ADD_TEXT"},
+                {"text": "餓", "action": "ADD_TEXT"}, {"text": "渴", "action": "ADD_TEXT"},
+                {"text": "想", "action": "ADD_TEXT"}, {"text": "人物", "action": "SUB_LINK"}, 
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-    
-    "Page_I1": {
+
+    "Page_E1_Sub": {
         "pages": [
-            // Page 1: 連接詞與介詞
             [
-                {"text": "在", "action": "ADD_TEXT"},
-                {"text": "向", "action": "ADD_TEXT"},
-                {"text": "從", "action": "ADD_TEXT"},
-                {"text": "往", "action": "ADD_TEXT"},
-                {"text": "被", "action": "ADD_TEXT"},
-                {"text": "給", "action": "ADD_TEXT"},
-                {"text": "把", "action": "ADD_TEXT"},
-                {"text": "用", "action": "ADD_TEXT"},
-                {"text": "與", "action": "ADD_TEXT"},
-                {"text": "有", "action": "ADD_TEXT"},
-                {"text": "由", "action": "ADD_TEXT"},
-                {"text": "此", "action": "ADD_TEXT"},
-                {"text": "對", "action": "ADD_TEXT"},
-                {"text": "叫", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-            // Page ２: 連接詞與介詞（續）
-            [
-                {"text": "一", "action": "ADD_TEXT"},
-                {"text": "想", "action": "ADD_TEXT"},
-                {"text": "會", "action": "ADD_TEXT"},
-                {"text": "要", "action": "ADD_TEXT"},
-                {"text": "和", "action": "ADD_TEXT"},
-                {"text": "還", "action": "ADD_TEXT"},
-                {"text": "換", "action": "ADD_TEXT"},
-                {"text": "夠", "action": "ADD_TEXT"},
-                {"text": "跟", "action": "ADD_TEXT"},
-                {"text": "而", "action": "ADD_TEXT"},
-                {"text": "又", "action": "ADD_TEXT"},
-                {"text": "不", "action": "ADD_TEXT"},
-                {"text": "敢", "action": "ADD_TEXT"},
-                {"text": "管", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-            // Page ３: 連接詞與介詞（續）
-            [
-                {"text": "等", "action": "ADD_TEXT"},
-                {"text": "讓", "action": "ADD_TEXT"},
-                {"text": "拿", "action": "ADD_TEXT"},
-                {"text": "忍耐", "action": "ADD_TEXT"},
-                {"text": "由於", "action": "ADD_TEXT"},
-                {"text": "期待", "action": "ADD_TEXT"},
-                {"text": "確定", "action": "ADD_TEXT"},
-                {"text": "除了", "action": "ADD_TEXT"},
-                {"text": "然後", "action": "ADD_TEXT"},
-                {"text": "但是", "action": "ADD_TEXT"},
-                {"text": "因為", "action": "ADD_TEXT"},
-                {"text": "所以", "action": "ADD_TEXT"},
-                {"text": "但是", "action": "ADD_TEXT"},
-                {"text": "如果", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
+                {"text": "細節1", "action": "ADD_TEXT"}, {"text": "細節2", "action": "ADD_TEXT"},
+                {"text": "細節3", "action": "ADD_TEXT"}, {"text": "細節4", "action": "ADD_TEXT"},
+                {"text": "細節5", "action": "ADD_TEXT"}, {"text": "細節6", "action": "ADD_TEXT"},
+                {"text": "細節7", "action": "ADD_TEXT"}, {"text": "細節8", "action": "ADD_TEXT"},
+                {"text": "細節9", "action": "ADD_TEXT"}, {"text": "細節10", "action": "ADD_TEXT"},
+                {"text": "細節11", "action": "ADD_TEXT"}, {"text": "細節12", "action": "ADD_TEXT"},
+                {"text": "細節13", "action": "ADD_TEXT"}, {"text": "再下一層", "action": "SUB_LINK"},
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-    
-    "Page_J1": {
+     "Page_F1": {
         "pages": [
-            // Page 1: 時間與單位
             [
-                {"text": "今天", "action": "ADD_TEXT"},
-                {"text": "明天", "action": "ADD_TEXT"},
-                {"text": "昨天", "action": "ADD_TEXT"},
-                {"text": "現在", "action": "ADD_TEXT"},
-                {"text": "早上", "action": "ADD_TEXT"},
-                {"text": "下午", "action": "ADD_TEXT"},
-                {"text": "中午", "action": "ADD_TEXT"},
-                {"text": "傍晚", "action": "ADD_TEXT"},
-                {"text": "晚上", "action": "ADD_TEXT"},
-                {"text": "年", "action": "ADD_TEXT"},
-                {"text": "月", "action": "ADD_TEXT"},
-                {"text": "日", "action": "ADD_TEXT"},
-                {"text": "星期", "action": "ADD_TEXT"},
-                {"text": "小時", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-            // Page 2: 數量與金額
-            [
-                {"text": "數字", "action": "ADD_TEXT"},
-                {"text": "號碼", "action": "ADD_TEXT"},
-                {"text": "時間", "action": "ADD_TEXT"},
-                {"text": "晚一點", "action": "ADD_TEXT"},
-                {"text": "等一下", "action": "ADD_TEXT"},
-                {"text": "百", "action": "ADD_TEXT"},
-                {"text": "千", "action": "ADD_TEXT"},
-                {"text": "萬", "action": "ADD_TEXT"},
-                {"text": "元", "action": "ADD_TEXT"},
-                {"text": "錢", "action": "ADD_TEXT"},
-                {"text": "多少", "action": "ADD_TEXT"},
-                {"text": "個", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ], // <--- 【關鍵修正 3: 這裡缺少逗號，已補上】
-            // Page 3: 數字按鈕
-            [
-                {"text": "1", "action": "ADD_TEXT"},
-                {"text": "2", "action": "ADD_TEXT"},
-                {"text": "3", "action": "ADD_TEXT"},
-                {"text": "4", "action": "ADD_TEXT"},
-                {"text": "5", "action": "ADD_TEXT"},
-                {"text": "6", "action": "ADD_TEXT"},
-                {"text": "7", "action": "ADD_TEXT"},
-                {"text": "8", "action": "ADD_TEXT"},
-                {"text": "9", "action": "ADD_TEXT"},
-                {"text": "10", "action": "ADD_TEXT"},
-                {"text": "0", "action": "ADD_TEXT"},
-                {"text": "點", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
+                {"text": "您", "action": "ADD_TEXT"}, {"text": "不", "action": "ADD_TEXT"}, 
+                {"text": "很", "action": "ADD_TEXT"}, {"text": "好", "action": "ADD_TEXT"}, 
+                {"text": "要", "action": "ADD_TEXT"}, {"text": "是", "action": "ADD_TEXT"}, 
+                {"text": "請", "action": "ADD_TEXT"}, {"text": "愛", "action": "ADD_TEXT"}, 
+                {"text": "了", "action": "ADD_TEXT"}, {"text": "累", "action": "ADD_TEXT"},
+                {"text": "餓", "action": "ADD_TEXT"}, {"text": "渴", "action": "ADD_TEXT"},
+                {"text": "想", "action": "ADD_TEXT"}, {"text": "人物", "action": "SUB_LINK"}, 
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-    
-    "Page_K1": {
+
+    "Page_F1_Sub": {
         "pages": [
-            // Page 1: 人稱與關係
             [
-                {"text": "你", "action": "ADD_TEXT"},
-                {"text": "我", "action": "ADD_TEXT"},
-                {"text": "他", "action": "ADD_TEXT"},
-                {"text": "們", "action": "ADD_TEXT"},
-                {"text": "醫生", "action": "ADD_TEXT"},
-                {"text": "護士", "action": "ADD_TEXT"},
-                {"text": "看護", "action": "ADD_TEXT"},
-                {"text": "朋友", "action": "ADD_TEXT"},
-                {"text": "家人", "action": "ADD_TEXT"},
-                {"text": "住友", "action": "ADD_TEXT"},
-                {"text": "男生", "action": "ADD_TEXT"},
-                {"text": "女生", "action": "ADD_TEXT"},
-                {"text": "爸爸", "action": "ADD_TEXT"},
-                {"text": "媽媽", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-            // Page 2: 人名 (已將空白處填滿)
-            [
-                {"text": "泓毅", "action": "ADD_TEXT"},
-                {"text": "貞慧", "action": "ADD_TEXT"},
-                {"text": "俊德", "action": "ADD_TEXT"},
-                {"text": "于茹", "action": "ADD_TEXT"},
-                {"text": "政龍", "action": "ADD_TEXT"},
-                {"text": "瑄蔚", "action": "ADD_TEXT"},
-                {"text": "凱梧", "action": "ADD_TEXT"},
-                {"text": "徐寧", "action": "ADD_TEXT"},
-                {"text": "凱祥", "action": "ADD_TEXT"},
-                {"text": "映瑄", "action": "ADD_TEXT"},
-                {"text": "天妤", "action": "ADD_TEXT"},
-                {"text": "阿嬤", "action": "ADD_TEXT"},
-                {"text": "阿公", "action": "ADD_TEXT"},
-                {"text": "老師", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
+                {"text": "細節1", "action": "ADD_TEXT"}, {"text": "細節2", "action": "ADD_TEXT"},
+                {"text": "細節3", "action": "ADD_TEXT"}, {"text": "細節4", "action": "ADD_TEXT"},
+                {"text": "細節5", "action": "ADD_TEXT"}, {"text": "細節6", "action": "ADD_TEXT"},
+                {"text": "細節7", "action": "ADD_TEXT"}, {"text": "細節8", "action": "ADD_TEXT"},
+                {"text": "細節9", "action": "ADD_TEXT"}, {"text": "細節10", "action": "ADD_TEXT"},
+                {"text": "細節11", "action": "ADD_TEXT"}, {"text": "細節12", "action": "ADD_TEXT"},
+                {"text": "細節13", "action": "ADD_TEXT"}, {"text": "再下一層", "action": "SUB_LINK"},
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-    
-    "Page_L1": {
+
+     "Page_G1": {
         "pages": [
-            // Page 1: 物品與生活需求
             [
-                {"text": "帽子", "action": "ADD_TEXT"},
-                {"text": "口罩", "action": "ADD_TEXT"},
-                {"text": "襪子", "action": "ADD_TEXT"},
-                {"text": "毛巾", "action": "ADD_TEXT"},
-                {"text": "圍巾", "action": "ADD_TEXT"},
-                {"text": "毯子", "action": "ADD_TEXT"},
-                {"text": "乳液", "action": "ADD_TEXT"},
-                {"text": "食物", "action": "ADD_TEXT"},
-                {"text": "飲料", "action": "ADD_TEXT"},
-                {"text": "椅子", "action": "ADD_TEXT"},
-                {"text": "坐起來", "action": "ADD_TEXT"},
-                {"text": "想睡覺", "action": "ADD_TEXT"},
-                {"text": "餓了", "action": "ADD_TEXT"},
-                {"text": "不舒服", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-            // Page 2: 動作與物品操作
-            [
-                {"text": "看電視", "action": "ADD_TEXT"},
-                {"text": "存放", "action": "ADD_TEXT"},
-                {"text": "拿", "action": "ADD_TEXT"},
-                {"text": "問", "action": "ADD_TEXT"},
-                {"text": "穿衣服", "action": "ADD_TEXT"},
-                {"text": "手機", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
+                {"text": "您", "action": "ADD_TEXT"}, {"text": "不", "action": "ADD_TEXT"}, 
+                {"text": "很", "action": "ADD_TEXT"}, {"text": "好", "action": "ADD_TEXT"}, 
+                {"text": "要", "action": "ADD_TEXT"}, {"text": "是", "action": "ADD_TEXT"}, 
+                {"text": "請", "action": "ADD_TEXT"}, {"text": "愛", "action": "ADD_TEXT"}, 
+                {"text": "了", "action": "ADD_TEXT"}, {"text": "累", "action": "ADD_TEXT"},
+                {"text": "餓", "action": "ADD_TEXT"}, {"text": "渴", "action": "ADD_TEXT"},
+                {"text": "想", "action": "ADD_TEXT"}, {"text": "人物", "action": "SUB_LINK"}, 
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-    
-    "Page_M1": {
+
+    "Page_G1_Sub": {
         "pages": [
-            // Page 1: 形容詞
             [
-                {"text": "感覺", "action": "ADD_TEXT"},
-                {"text": "重要", "action": "ADD_TEXT"},
-                {"text": "乾淨", "action": "ADD_TEXT"},
-                {"text": "舒服", "action": "ADD_TEXT"},
-                {"text": "開心", "action": "ADD_TEXT"},
-                {"text": "幫忙", "action": "ADD_TEXT"},
-                {"text": "難得", "action": "ADD_TEXT"},
-                {"text": "氣餒", "action": "ADD_TEXT"},
-                {"text": "傷心", "action": "ADD_TEXT"},
-                {"text": "容易", "action": "ADD_TEXT"},
-                {"text": "限制", "action": "ADD_TEXT"},
-                {"text": "生氣", "action": "ADD_TEXT"},
-                {"text": "舒服", "action": "ADD_TEXT"},
-                {"text": "特別", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-            // Page 2: 形容詞（續）
-            [
-                {"text": "髒", "action": "ADD_TEXT"},
-                {"text": "痛", "action": "ADD_TEXT"},
-                {"text": "累", "action": "ADD_TEXT"},
-                {"text": "熱", "action": "ADD_TEXT"},
-                {"text": "想", "action": "ADD_TEXT"},
-                {"text": "哭", "action": "ADD_TEXT"},
-                {"text": "笑", "action": "ADD_TEXT"},
-                {"text": "臭", "action": "ADD_TEXT"},
-                {"text": "香", "action": "ADD_TEXT"},
-                {"text": "慢", "action": "ADD_TEXT"},
-                {"text": "錯", "action": "ADD_TEXT"},
-                {"text": "到", "action": "ADD_TEXT"},
-                {"text": "冷", "action": "ADD_TEXT"},
-                {"text": "好", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
+                {"text": "細節1", "action": "ADD_TEXT"}, {"text": "細節2", "action": "ADD_TEXT"},
+                {"text": "細節3", "action": "ADD_TEXT"}, {"text": "細節4", "action": "ADD_TEXT"},
+                {"text": "細節5", "action": "ADD_TEXT"}, {"text": "細節6", "action": "ADD_TEXT"},
+                {"text": "細節7", "action": "ADD_TEXT"}, {"text": "細節8", "action": "ADD_TEXT"},
+                {"text": "細節9", "action": "ADD_TEXT"}, {"text": "細節10", "action": "ADD_TEXT"},
+                {"text": "細節11", "action": "ADD_TEXT"}, {"text": "細節12", "action": "ADD_TEXT"},
+                {"text": "細節13", "action": "ADD_TEXT"}, {"text": "再下一層", "action": "SUB_LINK"},
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-    
-    "Page_N1": {
+
+     "Page_H1": {
         "pages": [
-            // Page 1: 問候／疑問
             [
-                {"text": "什麼", "action": "ADD_TEXT"},
-                {"text": "哪裡", "action": "ADD_TEXT"},
-                {"text": "不對", "action": "ADD_TEXT"},
-                {"text": "不是", "action": "ADD_TEXT"},
-                {"text": "可以", "action": "ADD_TEXT"},
-                {"text": "沒有", "action": "ADD_TEXT"},
-                {"text": "不行", "action": "ADD_TEXT"},
-                {"text": "記得", "action": "ADD_TEXT"},
-                {"text": "幾點", "action": "ADD_TEXT"},
-                {"text": "覺得", "action": "ADD_TEXT"},
-                {"text": "現在", "action": "ADD_TEXT"},
-                {"text": "為什麼", "action": "ADD_TEXT"},
-                {"text": "是", "action": "ADD_TEXT"},
-                {"text": "不是", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-            // Page 2: 疑問詞（續）
-            [
-                {"text": "怎麼了", "action": "ADD_TEXT"},
-                {"text": "誰", "action": "ADD_TEXT"},
-                {"text": "多久", "action": "ADD_TEXT"},
-                {"text": "要不要", "action": "ADD_TEXT"},
-                {"text": "有沒有", "action": "ADD_TEXT"},
-                {"text": "好嗎", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
+                {"text": "您", "action": "ADD_TEXT"}, {"text": "不", "action": "ADD_TEXT"}, 
+                {"text": "很", "action": "ADD_TEXT"}, {"text": "好", "action": "ADD_TEXT"}, 
+                {"text": "要", "action": "ADD_TEXT"}, {"text": "是", "action": "ADD_TEXT"}, 
+                {"text": "請", "action": "ADD_TEXT"}, {"text": "愛", "action": "ADD_TEXT"}, 
+                {"text": "了", "action": "ADD_TEXT"}, {"text": "累", "action": "ADD_TEXT"},
+                {"text": "餓", "action": "ADD_TEXT"}, {"text": "渴", "action": "ADD_TEXT"},
+                {"text": "想", "action": "ADD_TEXT"}, {"text": "人物", "action": "SUB_LINK"}, 
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-    
-    "Page_O1": {
+
+    "Page_H1_Sub": {
         "pages": [
-            // Page 1: 動詞 (已將空白處填滿)
             [
-                {"text": "走", "action": "ADD_TEXT"},
-                {"text": "看", "action": "ADD_TEXT"},
-                {"text": "聽", "action": "ADD_TEXT"},
-                {"text": "吃", "action": "ADD_TEXT"},
-                {"text": "喝", "action": "ADD_TEXT"},
-                {"text": "說", "action": "ADD_TEXT"},
-                {"text": "想", "action": "ADD_TEXT"},
-                {"text": "要", "action": "ADD_TEXT"},
-                {"text": "來", "action": "ADD_TEXT"},
-                {"text": "去", "action": "ADD_TEXT"},
-                {"text": "拿", "action": "ADD_TEXT"},
-                {"text": "給", "action": "ADD_TEXT"},
-                {"text": "做", "action": "ADD_TEXT"},
-                {"text": "幫忙", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-            // Page 2: 動詞（續）
-            [
-                {"text": "睡", "action": "ADD_TEXT"},
-                {"text": "坐", "action": "ADD_TEXT"},
-                {"text": "站", "action": "ADD_TEXT"},
-                {"text": "躺", "action": "ADD_TEXT"},
-                {"text": "穿", "action": "ADD_TEXT"},
-                {"text": "脫", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
+                {"text": "細節1", "action": "ADD_TEXT"}, {"text": "細節2", "action": "ADD_TEXT"},
+                {"text": "細節3", "action": "ADD_TEXT"}, {"text": "細節4", "action": "ADD_TEXT"},
+                {"text": "細節5", "action": "ADD_TEXT"}, {"text": "細節6", "action": "ADD_TEXT"},
+                {"text": "細節7", "action": "ADD_TEXT"}, {"text": "細節8", "action": "ADD_TEXT"},
+                {"text": "細節9", "action": "ADD_TEXT"}, {"text": "細節10", "action": "ADD_TEXT"},
+                {"text": "細節11", "action": "ADD_TEXT"}, {"text": "細節12", "action": "ADD_TEXT"},
+                {"text": "細節13", "action": "ADD_TEXT"}, {"text": "再下一層", "action": "SUB_LINK"},
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-    
-    "Page_P1": {
+
+     "Page_I1": {
         "pages": [
-            // Page 1: 自訂句子 (填入常用的完整句子)
             [
-                {"text": "我想要喝水。", "action": "ADD_TEXT"},
-                {"text": "我感覺不舒服。", "action": "ADD_TEXT"},
-                {"text": "請帶我出去。", "action": "ADD_TEXT"},
-                {"text": "我想回家。", "action": "ADD_TEXT"},
-                {"text": "請幫我開電視。", "action": "ADD_TEXT"},
-                {"text": "我現在很冷。", "action": "ADD_TEXT"},
-                {"text": "我現在很熱。", "action": "ADD_TEXT"},
-                {"text": "謝謝你的幫忙。", "action": "ADD_TEXT"},
-                {"text": "對不起，請原諒我。", "action": "ADD_TEXT"},
-                {"text": "我想去廁所。", "action": "ADD_TEXT"},
-                {"text": "請幫我換個姿勢。", "action": "ADD_TEXT"},
-                {"text": "請幫我按摩。", "action": "ADD_TEXT"},
-                {"text": "我需要休息。", "action": "ADD_TEXT"},
-                {"text": "我很開心。", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
-            // Page 2: 自訂句子（續）
-            [
-                {"text": "我很愛你。", "action": "ADD_TEXT"},
-                {"text": "我肚子餓了。", "action": "ADD_TEXT"},
-                {"text": "請再說一次。", "action": "ADD_TEXT"},
-                {"text": "請叫醫生來。", "action": "ADD_TEXT"},
-                {"text": "我希望你留下。", "action": "ADD_TEXT"},
-                {"text": "讓我靜一靜。", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "", "action": "ADD_TEXT"},
-                {"text": "播放", "action": "SPEAK", "color": [0.2, 0.4, 0.7]},
-                {"text": "回主頁", "action": "GOTO_HOME", "color": [0.2, 0.7, 0.2]},
-            ],
+                {"text": "您", "action": "ADD_TEXT"}, {"text": "不", "action": "ADD_TEXT"}, 
+                {"text": "很", "action": "ADD_TEXT"}, {"text": "好", "action": "ADD_TEXT"}, 
+                {"text": "要", "action": "ADD_TEXT"}, {"text": "是", "action": "ADD_TEXT"}, 
+                {"text": "請", "action": "ADD_TEXT"}, {"text": "愛", "action": "ADD_TEXT"}, 
+                {"text": "了", "action": "ADD_TEXT"}, {"text": "累", "action": "ADD_TEXT"},
+                {"text": "餓", "action": "ADD_TEXT"}, {"text": "渴", "action": "ADD_TEXT"},
+                {"text": "想", "action": "ADD_TEXT"}, {"text": "人物", "action": "SUB_LINK"}, 
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
         ]
     },
-}; // <-- 確保最後有分號
+
+    "Page_I1_Sub": {
+        "pages": [
+            [
+                {"text": "細節1", "action": "ADD_TEXT"}, {"text": "細節2", "action": "ADD_TEXT"},
+                {"text": "細節3", "action": "ADD_TEXT"}, {"text": "細節4", "action": "ADD_TEXT"},
+                {"text": "細節5", "action": "ADD_TEXT"}, {"text": "細節6", "action": "ADD_TEXT"},
+                {"text": "細節7", "action": "ADD_TEXT"}, {"text": "細節8", "action": "ADD_TEXT"},
+                {"text": "細節9", "action": "ADD_TEXT"}, {"text": "細節10", "action": "ADD_TEXT"},
+                {"text": "細節11", "action": "ADD_TEXT"}, {"text": "細節12", "action": "ADD_TEXT"},
+                {"text": "細節13", "action": "ADD_TEXT"}, {"text": "再下一層", "action": "SUB_LINK"},
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
+        ]
+    },
+
+     "Page_J1": {
+        "pages": [
+            [
+                {"text": "您", "action": "ADD_TEXT"}, {"text": "不", "action": "ADD_TEXT"}, 
+                {"text": "很", "action": "ADD_TEXT"}, {"text": "好", "action": "ADD_TEXT"}, 
+                {"text": "要", "action": "ADD_TEXT"}, {"text": "是", "action": "ADD_TEXT"}, 
+                {"text": "請", "action": "ADD_TEXT"}, {"text": "愛", "action": "ADD_TEXT"}, 
+                {"text": "了", "action": "ADD_TEXT"}, {"text": "累", "action": "ADD_TEXT"},
+                {"text": "餓", "action": "ADD_TEXT"}, {"text": "渴", "action": "ADD_TEXT"},
+                {"text": "想", "action": "ADD_TEXT"}, {"text": "人物", "action": "SUB_LINK"}, 
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
+        ]
+    },
+
+    "Page_J1_Sub": {
+        "pages": [
+            [
+                {"text": "細節1", "action": "ADD_TEXT"}, {"text": "細節2", "action": "ADD_TEXT"},
+                {"text": "細節3", "action": "ADD_TEXT"}, {"text": "細節4", "action": "ADD_TEXT"},
+                {"text": "細節5", "action": "ADD_TEXT"}, {"text": "細節6", "action": "ADD_TEXT"},
+                {"text": "細節7", "action": "ADD_TEXT"}, {"text": "細節8", "action": "ADD_TEXT"},
+                {"text": "細節9", "action": "ADD_TEXT"}, {"text": "細節10", "action": "ADD_TEXT"},
+                {"text": "細節11", "action": "ADD_TEXT"}, {"text": "細節12", "action": "ADD_TEXT"},
+                {"text": "細節13", "action": "ADD_TEXT"}, {"text": "再下一層", "action": "SUB_LINK"},
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
+        ]
+    },
+
+     "Page_K1": {
+        "pages": [
+            [
+                {"text": "您", "action": "ADD_TEXT"}, {"text": "不", "action": "ADD_TEXT"}, 
+                {"text": "很", "action": "ADD_TEXT"}, {"text": "好", "action": "ADD_TEXT"}, 
+                {"text": "要", "action": "ADD_TEXT"}, {"text": "是", "action": "ADD_TEXT"}, 
+                {"text": "請", "action": "ADD_TEXT"}, {"text": "愛", "action": "ADD_TEXT"}, 
+                {"text": "了", "action": "ADD_TEXT"}, {"text": "累", "action": "ADD_TEXT"},
+                {"text": "餓", "action": "ADD_TEXT"}, {"text": "渴", "action": "ADD_TEXT"},
+                {"text": "想", "action": "ADD_TEXT"}, {"text": "人物", "action": "SUB_LINK"}, 
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
+        ]
+    },
+
+    "Page_K1_Sub": {
+        "pages": [
+            [
+                {"text": "細節1", "action": "ADD_TEXT"}, {"text": "細節2", "action": "ADD_TEXT"},
+                {"text": "細節3", "action": "ADD_TEXT"}, {"text": "細節4", "action": "ADD_TEXT"},
+                {"text": "細節5", "action": "ADD_TEXT"}, {"text": "細節6", "action": "ADD_TEXT"},
+                {"text": "細節7", "action": "ADD_TEXT"}, {"text": "細節8", "action": "ADD_TEXT"},
+                {"text": "細節9", "action": "ADD_TEXT"}, {"text": "細節10", "action": "ADD_TEXT"},
+                {"text": "細節11", "action": "ADD_TEXT"}, {"text": "細節12", "action": "ADD_TEXT"},
+                {"text": "細節13", "action": "ADD_TEXT"}, {"text": "再下一層", "action": "SUB_LINK"},
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
+        ]
+    },
+
+     "Page_L1": {
+        "pages": [
+            [
+                {"text": "您", "action": "ADD_TEXT"}, {"text": "不", "action": "ADD_TEXT"}, 
+                {"text": "很", "action": "ADD_TEXT"}, {"text": "好", "action": "ADD_TEXT"}, 
+                {"text": "要", "action": "ADD_TEXT"}, {"text": "是", "action": "ADD_TEXT"}, 
+                {"text": "請", "action": "ADD_TEXT"}, {"text": "愛", "action": "ADD_TEXT"}, 
+                {"text": "了", "action": "ADD_TEXT"}, {"text": "累", "action": "ADD_TEXT"},
+                {"text": "餓", "action": "ADD_TEXT"}, {"text": "渴", "action": "ADD_TEXT"},
+                {"text": "想", "action": "ADD_TEXT"}, {"text": "人物", "action": "SUB_LINK"}, 
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
+        ]
+    },
+
+    "Page_L1_Sub": {
+        "pages": [
+            [
+                {"text": "細節1", "action": "ADD_TEXT"}, {"text": "細節2", "action": "ADD_TEXT"},
+                {"text": "細節3", "action": "ADD_TEXT"}, {"text": "細節4", "action": "ADD_TEXT"},
+                {"text": "細節5", "action": "ADD_TEXT"}, {"text": "細節6", "action": "ADD_TEXT"},
+                {"text": "細節7", "action": "ADD_TEXT"}, {"text": "細節8", "action": "ADD_TEXT"},
+                {"text": "細節9", "action": "ADD_TEXT"}, {"text": "細節10", "action": "ADD_TEXT"},
+                {"text": "細節11", "action": "ADD_TEXT"}, {"text": "細節12", "action": "ADD_TEXT"},
+                {"text": "細節13", "action": "ADD_TEXT"}, {"text": "再下一層", "action": "SUB_LINK"},
+                {"text": "播放", "action": "SPEAK"}, {"text": "回主頁", "action": "GOTO_HOME"}
+            ]
+        ]
+    },
+
+};
