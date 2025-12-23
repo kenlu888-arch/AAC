@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>樂齡溝通板 - 定製版</title>
+    <style>
+        * { box-sizing: border-box; -webkit-user-select: none; touch-action: manipulation; margin: 0; padding: 0; }
+        body, html { height: 100dvh; width: 100vw; background-color: #f0f0f0; overflow: hidden; position: fixed; font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; }
+        
+        #app-container { display: flex; flex-direction: column; height: 100dvh; padding: 10px; gap: 10px; }
+
+        /* 頂部區域 */
+        #text-control-bar { display: flex; height: 15%; gap: 10px; }
+        #text-display { flex: 1; background: white; border: 4px solid #455A64; border-radius: 12px; font-size: 44px; font-weight: bold; padding: 0 15px; display: flex; align-items: center; word-break: break-all; overflow: hidden; }
+        #control-buttons-right { display: flex; flex-direction: column; width: 110px; gap: 5px; }
+        #control-buttons-right button { flex: 1; border: none; border-radius: 10px; color: white; font-size: 22px; font-weight: bold; }
+        
+        #clear-text-btn { background: #f44336; }
+        #backspace-btn { background: #FF9800; }
+
+        /* 中間按鈕區 */
+        #button-container { flex: 1; display: grid; gap: 10px; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); }
+        
+        .main-btn { 
+            width: 100%; height: 100%;
+            font-weight: 900; 
+            border: none; 
+            border-radius: 15px; 
+            color: white; 
+            box-shadow: 0 5px #999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: 1.05;
+            padding: 5px;
+            white-space: normal; 
+            word-wrap: break-word; 
+        }
+
+        /* 底部導航欄 */
+        #page-control { height: 12%; display: flex; justify-content: space-between; align-items: center; background: #e0e0e0; border-radius: 15px; padding: 0 15px; gap: 10px; }
+        
+        #app-title { font-size: 28px; font-weight: 900; color: #455A64; flex: 1; }
+        
+        .nav-btn { height: 60px; font-size: 24px; font-weight: bold; border: none; border-radius: 10px; background: #1976D2; color: white; padding: 0 20px; }
+        #edit-toggle-btn { height: 60px; min-width: 130px; font-size: 24px; font-weight: bold; border: none; border-radius: 10px; background: #546E7A; color: white; }
+        #page-info { font-size: 24px; font-weight: bold; min-width: 70px; text-align: center; }
+        
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<div id="app-container">
+    <div id="text-control-bar">
+        <div id="text-display"></div>
+        <div id="control-buttons-right">
+            <button id="clear-text-btn">清除</button>
+            <button id="backspace-btn">退回</button>
+        </div>
+    </div>
+    
+    <div id="button-container"></div>
+
+    <div id="page-control">
+        <button id="edit-toggle-btn">✏️修改</button>
+        
+        <div id="app-title" class="hidden">樂齡溝通板</div>
+        
+        <div id="nav-group" style="display: flex; align-items: center; gap: 10px;">
+            <button id="prev-page" class="nav-btn">⬅ 上頁</button>
+            <span id="page-info">1 / 1</span>
+            <button id="next-page" class="nav-btn">下頁 ➡</button>
+        </div>
+    </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+    const appState = {
+        currentText: "",
+        currentPageKey: "Level1_Topics",
+        currentPageIndex: 0,
+        totalPages: 1,
+        isEditMode: false
+    };
+
+    const TOPIC_COLORS = {
+        "A": "#E91E63", "B": "#FF9800", "C": "#FBC02D", "D": "#4CAF50",
+        "E": "#009688", "F": "#00BCD4", "G": "#9C27B0", "H": "#673AB7",
+        "I": "#795548", "J": "#607D8B", "K": "#3F51B5", "L": "#8D6E63",
+        "M": "#FF5722", "N": "#00897B", "O": "#558B2F", "P": "#455A64",
+        "Level1": "#2196F3"
+    };
+
+    function renderInterface(pageKey, pageIndex = 0) {
+        appState.currentPageKey = pageKey;
+        appState.currentPageIndex = pageIndex;
+        const container = document.getElementById('button-container');
+        container.innerHTML = ''; 
+
+        const isMain = pageKey === "Level1_Topics";
+        
+        // 控制底部欄位顯示內容
+        if (isMain) {
+            document.getElementById('app-title').classList.remove('hidden');
+            document.getElementById('nav-group').classList.add('hidden');
+        } else {
+            document.getElementById('app-title').classList.add('hidden');
+            document.getElementById('nav-group').classList.remove('hidden');
+        }
+
+        const data = APP_DATA[pageKey];
+        const currentButtons = isMain ? data : (data.pages[pageIndex] || []);
+        
+        if (!isMain) {
+            appState.totalPages = data.pages.length;
+            document.getElementById('page-info').textContent = `${pageIndex + 1}/${appState.totalPages}`;
+        }
+
+        const themeColor = isMain ? TOPIC_COLORS["Level1"] : (TOPIC_COLORS[pageKey.split('_')[1]?.charAt(0)] || "#9E9E9E");
+
+        let fontSize;
+        if (pageKey === "Page_P1") {
+            fontSize = "34px";
+        } else if (isMain) {
+            fontSize = "44px";
+        } else {
+            fontSize = "48px";
+        }
+
+        for (let i = 0; i < 16; i++) {
+            const btnWrapper = document.createElement('div');
+            if (i < currentButtons.length) {
+                const btn = createButton(currentButtons[i], themeColor, i);
+                btn.style.fontSize = fontSize;
+                btnWrapper.appendChild(btn);
+            }
+            container.appendChild(btnWrapper);
+        }
+    }
+
+    function createButton(item, color, index) {
+        const btn = document.createElement('button');
+        btn.className = 'main-btn';
+        const storageKey = `edit_${appState.currentPageKey}_${appState.currentPageIndex}_${index}`;
+        btn.textContent = localStorage.getItem(storageKey) || item.text;
+        btn.style.backgroundColor = (item.action === "SPEAK" || item.action === "GOTO_HOME") ? "#1A237E" : color;
+
+        btn.onclick = () => {
+            if (appState.isEditMode) {
+                const newText = prompt("請輸入按鈕名稱：", btn.textContent);
+                if (newText !== null && newText.trim() !== "") {
+                    btn.textContent = newText;
+                    localStorage.setItem(storageKey, newText);
+                }
+            } else {
+                handleAction(item, btn.textContent);
+            }
+        };
+        return btn;
+    }
+
+    function handleAction(item, text) {
+        if (item.target) {
+            renderInterface(item.target, 0);
+        } else if (item.action === "ADD_TEXT") {
+            appState.currentText += text;
+            document.getElementById('text-display').textContent = appState.currentText;
+        } else if (item.action === "GOTO_HOME") {
+            renderInterface("Level1_Topics");
+        } else if (item.action === "SPEAK") {
+            speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(appState.currentText || " ");
+            u.lang = 'zh-TW';
+            speechSynthesis.speak(u);
+        }
+    }
+
+    const editBtn = document.getElementById('edit-toggle-btn');
+    editBtn.onclick = function() {
+        appState.isEditMode = !appState.isEditMode;
+        if (appState.isEditMode) {
+            this.style.backgroundColor = "#f44336";
+            this.style.border = "4px solid yellow";
+            this.textContent = "✅完成";
+        } else {
+            this.style.backgroundColor = "#546E7A";
+            this.style.border = "none";
+            this.textContent = "✏️修改";
+        }
+    };
+
+    document.getElementById('clear-text-btn').onclick = () => {
+        appState.currentText = "";
+        document.getElementById('text-display').textContent = "";
+    };
+
+    document.getElementById('backspace-btn').onclick = () => {
+        appState.currentText = appState.currentText.slice(0, -1);
+        document.getElementById('text-display').textContent = appState.currentText;
+    };
+
+    document.getElementById('prev-page').onclick = () => {
+        if (appState.currentPageIndex > 0) renderInterface(appState.currentPageKey, appState.currentPageIndex - 1);
+    };
+
+    document.getElementById('next-page').onclick = () => {
+        if (appState.currentPageIndex < appState.totalPages - 1) renderInterface(appState.currentPageKey, appState.currentPageIndex + 1);
+    };
+
+    window.onload = () => renderInterface("Level1_Topics");
+</script>
+
+</body>
+</html>
